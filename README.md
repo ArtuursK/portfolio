@@ -1,1 +1,1 @@
-# portfolio
+# portfolio vietne skolēnu profilam
