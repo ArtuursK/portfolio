@@ -21,9 +21,9 @@ public class TestController {
         return "index";
     }
 
-    @PostMapping(value = "forms/submit")
+    @PostMapping(value = "/contactform/submit")
     public String submitForm(){
-        //papildinat lapu ar info
+        //TODO janosuta dati uz savu epastu
         return "index";
     }
 

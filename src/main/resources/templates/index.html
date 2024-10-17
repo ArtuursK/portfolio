@@ -5,6 +5,7 @@
 
 <head>
     <title>Lapas nosaukums</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
@@ -15,7 +16,11 @@
 
 
     <!-- Forma, kura sutis datus timekla serverim -->
-    <form action="forms/submit" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+    <form action="/contactform/submit" method="POST">
+        <input type="text"/>
+        <div class="g-recaptcha" data-sitekey="6LdMB2QqAAAAAJpnBBjd24ScevAzD5x5G2y7YgQB"></div>
+        <br/>
+        <input type="submit" value="Nosutit zinu" style="display:inline-block;">
     </form>
 </body>
 </html>
