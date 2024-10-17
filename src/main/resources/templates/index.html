@@ -4,24 +4,57 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>Lapas nosaukums</title>
+    <title>Portfolio</title>
+
+    <!-- Styles -->
+    <link th:href="@{assets/css/main.css}" rel="stylesheet">
+    <link th:href="@{assets/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{assets/bootstrap-icons/bootstrap-icons.css}" rel="stylesheet">
+
+
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
-    <p>Paragrāfs</p>
-    <p>Cits Paragrāfs</p>
-    <span>Vienkāršs teksts</span>
-    <span> Vienkāršs teksts turpinās</span>
+    <p><strong>Portfolio piemērs</strong></p>
 
 
-    <!-- Forma, kura sutis datus timekla serverim -->
-    <form action="/contactform/submit" method="POST">
-        <input type="text"/>
-        <div class="g-recaptcha" data-sitekey="6LdMB2QqAAAAAJpnBBjd24ScevAzD5x5G2y7YgQB"></div>
+    <form action="#" th:action="@{/contactform/submit}" method="post">
+        <div class="form-group">
+            <div class="mb-3">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Jūsu epasts: </label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="inputEmail3" name="email">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="mb-3">
+                <label for="inputMessage">Jūsu ziņa</label>
+                <textarea class="form-control" id="inputMessage" name="message" rows="3"></textarea>
+
+            </div>
+        </div>
+
+        <div class="g-recaptcha" data-sitekey="6LdMB2QqAAAAAJpnBBjd24ScevAzD5x5G2y7YgQB" data-callback="handleCallback"></div>
         <br/>
-        <input type="submit" value="Nosutit zinu" style="display:inline-block;">
+        <button id="contact-submit-btn" type="submit" class="btn btn-primary" style="display:none;">Sūtīt ziņu</button>
     </form>
+
+
+    <script>
+        function handleCallback(){
+            var response = grecaptcha.getResponse();
+            if(response.length == 0) {
+                document.getElementById('contact-submit-btn').style.display = 'none';
+            } else {
+                document.getElementById('contact-submit-btn').style.display = 'inline-block';
+            }
+        }
+    </script>
+    <script th:src="@{assets/bootstrap/js/bootstrap.bundle.min.js}"></script>
+
+
 </body>
 </html>
 

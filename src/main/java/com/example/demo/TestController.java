@@ -4,6 +4,7 @@ package com.example.demo;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class TestController {
@@ -22,7 +23,12 @@ public class TestController {
     }
 
     @PostMapping(value = "/contactform/submit")
-    public String submitForm(){
+    public String submitForm(
+            @RequestParam("email") String email,
+            @RequestParam("message") String message
+    ){
+        System.out.println("email: " + email);
+        System.out.println("message: " + message);
         //TODO janosuta dati uz savu epastu
         return "index";
     }
